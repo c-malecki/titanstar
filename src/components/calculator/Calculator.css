@@ -1,0 +1,28 @@
+.calc-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+.points-counter {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 200px;
+  height: 60px;
+  text-align: center;
+  background-color: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.5);
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+}
+
+.points-counter span:last-of-type {
+  color: #435c79;
+}

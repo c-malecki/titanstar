@@ -1,0 +1,21 @@
+.talent-path-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: min-content 1fr;
+  width: 100%;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.talent-path-container span {
+  font-weight: 500;
+  color: #a0a2a2;
+  text-transform: uppercase;
+}
+
+.talent-path-container button {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border: none;
+}
