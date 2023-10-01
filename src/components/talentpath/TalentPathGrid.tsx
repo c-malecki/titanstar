@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./TalentPathGrid.css";
 import sprites from "../../assets/talent-icons-sprite.png";
-import type { Talent, TalentPath } from "../calculator/Calculator";
+import type { TalentPath } from "../calculator/Calculator";
 
 type TalentPathProps = {
   path: TalentPath;

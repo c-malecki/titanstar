@@ -132,7 +132,7 @@ function Calculator() {
 
   return (
     <div className="calc-container">
-      <div className="flex-col">
+      <div className="talent-tree-container">
         {talentTree.map((path, idx) => (
           <TalentPathGrid
             key={path.name}

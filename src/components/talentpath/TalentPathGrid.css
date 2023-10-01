@@ -7,6 +7,17 @@
   padding: 1rem 0;
 }
 
+@media (max-width: 860px) {
+  .talent-path-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 100px);
+    max-width: 150px;
+    justify-items: center;
+    padding: 0;
+  }
+}
+
 .talent-path-container span {
   font-weight: 500;
   color: #a0a2a2;
