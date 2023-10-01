@@ -3,7 +3,6 @@ import "./Calculator.css";
 import TalentPathGrid from "../talentpath/TalentPathGrid";
 
 export type Talent = {
-  id: number;
   name: string;
   allocated: boolean;
 };
@@ -24,22 +23,18 @@ function Calculator() {
       name: "talent path 1",
       talents: [
         {
-          id: 1,
           name: "talent 1",
           allocated: false,
         },
         {
-          id: 2,
           name: "talent 2",
           allocated: false,
         },
         {
-          id: 3,
           name: "talent 3",
           allocated: false,
         },
         {
-          id: 4,
           name: "talent 4",
           allocated: false,
         },
@@ -50,22 +45,18 @@ function Calculator() {
       name: "talent path 2",
       talents: [
         {
-          id: 1,
           name: "talent 1",
           allocated: false,
         },
         {
-          id: 2,
           name: "talent 2",
           allocated: false,
         },
         {
-          id: 3,
           name: "talent 3",
           allocated: false,
         },
         {
-          id: 4,
           name: "talent 4",
           allocated: false,
         },

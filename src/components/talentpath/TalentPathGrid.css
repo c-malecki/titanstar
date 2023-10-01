@@ -13,9 +13,52 @@
   text-transform: uppercase;
 }
 
+.button-border {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  background: linear-gradient(to top,#6eadee,#6eadee38, transparent),
+   linear-gradient(to bottom,#6eadee,#6eadee, transparent) 
+}
+
 .talent-path-container button {
+  /* position: relative; */
   height: 50px;
   width: 50px;
   padding: 0;
+  cursor: pointer;
   border: none;
 }
+
+/* .talent-path-container button::before {
+  content: "";
+  position: absolute;
+  top: -8px; 
+  left: -8px;
+  height: 58px;
+  width: 58px;
+  z-index: -1;
+  background: radial-gradient(circle at 100% 100%, #ffffff 0, #ffffff 3px, transparent 3px) 0% 0%/8px 8px no-repeat,
+  radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 3px, transparent 3px) 100% 0%/8px 8px no-repeat,
+  radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 3px, transparent 3px) 0% 100%/8px 8px no-repeat,
+  radial-gradient(circle at 0 0, #ffffff 0, #ffffff 3px, transparent 3px) 100% 100%/8px 8px no-repeat,
+  linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 10px) calc(100% - 16px) no-repeat,
+  linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 16px) calc(100% - 10px) no-repeat,
+  linear-gradient(transparent 0%, #4b4b4b 100%) 0 0/100% 50%;
+} */
+
+/* .talent-path-container button::after {
+  content: "";
+  position: absolute;
+  top: -8px; 
+  left: -8px;
+  height: 58px;
+  width: 58px;
+  z-index: 1;
+} */
+
+/* border-radius: 8px;
+padding: 9px;
+box-sizing: border-box; */

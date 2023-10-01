@@ -15,19 +15,12 @@
   box-sizing: border-box;
   background:no-repeat url("./assets/talent-calc-bg.png") ;
   background-size: cover;
+  border: 2px solid #111416;
 }
 
 h1 {
   text-align: center;
   font-weight: 500;
-  background-color: #181a1b;
-}
-
-.flex-row {
-  display: flex;
-  flex-direction: row;
-}
-
-.path-container span {
-  text-transform: uppercase;
+  background-color: rgba(255,255,255,0.05);
+  margin: 0;
 }

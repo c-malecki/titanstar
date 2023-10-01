@@ -1,6 +1,8 @@
 .calc-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  padding: 3rem 0 2rem 0;
 }
 
 .flex-col {
@@ -18,7 +20,7 @@
   height: 60px;
   text-align: center;
   background-color: rgba(0,0,0,0.5);
-  border: 1px solid rgba(255,255,255,0.5);
+  border: 1px solid #111416;
   font-size: 1.5rem;
   line-height: 1.8rem;
 }
