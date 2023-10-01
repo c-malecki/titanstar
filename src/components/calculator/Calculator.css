@@ -18,7 +18,7 @@
   .talent-tree-container {
     flex-direction: row;
     order: 1;
-   justify-content: center;
+    justify-content: center;
   }
   .points-counter {
     order: 0;

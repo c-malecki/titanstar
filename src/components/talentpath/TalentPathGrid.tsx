@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./TalentPathGrid.css";
 import sprites from "../../assets/talent-icons-sprite.png";
-import type { TalentPath } from "../calculator/Calculator";
+import type { Talent, TalentPath } from "../calculator/Calculator";
 
 type TalentPathProps = {
   path: TalentPath;
@@ -12,6 +12,7 @@ type TalentPathProps = {
 
 function TalentPath(props: TalentPathProps) {
   const [activeButton, setActiveButton] = useState<number | null>(null);
+
   const calcSpritePos = (
     pathPosition: number,
     allocated: boolean,
@@ -28,11 +29,30 @@ function TalentPath(props: TalentPathProps) {
     };
   };
 
+  const genButtonClass = (talents: Talent[], curTalentIdx: number) => {
+    let buttonClass = "button-border unconnected-path";
+    if (talents[curTalentIdx].allocated) {
+      buttonClass += " border-allocated";
+    }
+    if (curTalentIdx === 0 && talents[curTalentIdx].allocated) {
+      buttonClass += " connected-path";
+    }
+    if (
+      curTalentIdx > 0 &&
+      curTalentIdx !== talents.length - 1 &&
+      talents[curTalentIdx + 1].allocated
+    ) {
+      buttonClass += " connected-path";
+    }
+
+    return buttonClass;
+  };
+
   return (
     <div className="talent-path-container">
       <span>{props.path.name}</span>
       {props.path.talents.map((talent, talentIdx) => (
-        <div className="button-border" key={talentIdx}>
+        <div className={genButtonClass(props.path.talents, talentIdx)} key={talentIdx}>
           <button
             style={calcSpritePos(
               props.path.position,
