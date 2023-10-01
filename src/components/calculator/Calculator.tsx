@@ -8,7 +8,6 @@ export type Talent = {
 };
 
 export type TalentPath = {
-  position: number;
   name: string;
   talents: Array<Talent>;
 };
@@ -19,7 +18,6 @@ function Calculator() {
   const [points, setPoints] = useState(0);
   const [talentTree, setTalentTree] = useState<TalentTree>([
     {
-      position: 1,
       name: "talent path 1",
       talents: [
         {
@@ -41,7 +39,6 @@ function Calculator() {
       ],
     },
     {
-      position: 2,
       name: "talent path 2",
       talents: [
         {
@@ -144,8 +141,8 @@ function Calculator() {
         ))}
       </div>
       <div className="points-counter">
-        <span>{points} / 6</span>
-        <span>Points Spent</span>
+        <p>{points} &#47; 6</p>
+        <p>Points Spent</p>
       </div>
     </div>
   );

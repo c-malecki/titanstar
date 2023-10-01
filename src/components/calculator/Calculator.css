@@ -8,12 +8,13 @@
 .talent-tree-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 75%;
 }
 
 @media (max-width: 860px) {
   .calc-container  {
     flex-direction: column;
+    padding: 2rem 0;
   }
   .talent-tree-container {
     flex-direction: row;
@@ -22,13 +23,12 @@
   }
   .points-counter {
     order: 0;
+    margin: auto;
   }
 }
 
 
 .points-counter {
-  display: flex;
-  flex-direction: column;
   padding: 1rem;
   width: 180px;
   height: 60px;
@@ -36,9 +36,14 @@
   background-color: rgba(0,0,0,0.5);
   border: 1px solid #111416;
   font-size: 1.5rem;
+  margin: auto 4rem auto 5rem;
+}
+
+.points-counter p {
+  margin: 0;
   line-height: 1.8rem;
 }
 
-.points-counter span:last-of-type {
+.points-counter p:last-of-type {
   color: #435c79;
 }

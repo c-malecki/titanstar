@@ -13,14 +13,9 @@ type TalentPathProps = {
 function TalentPath(props: TalentPathProps) {
   const [activeButton, setActiveButton] = useState<number | null>(null);
 
-  const calcSpritePos = (
-    pathPosition: number,
-    allocated: boolean,
-    idx: number,
-    active: boolean
-  ) => {
+  const calcSpritePos = (pathIdx: number, allocated: boolean, idx: number, active: boolean) => {
     const allocatedOrActive = allocated || active;
-    const posMultiplier = pathPosition > 1 ? 4 : 0;
+    const posMultiplier = pathIdx > 0 ? 4 : 0;
     const xPos = (idx + posMultiplier) * -50;
     const yPos = allocatedOrActive ? 0 : 50;
     return {
@@ -55,7 +50,7 @@ function TalentPath(props: TalentPathProps) {
         <div className={genButtonClass(props.path.talents, talentIdx)} key={talentIdx}>
           <button
             style={calcSpritePos(
-              props.path.position,
+              props.pathIdx,
               talent.allocated,
               talentIdx,
               talentIdx === activeButton
