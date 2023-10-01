@@ -1,5 +1,4 @@
-import { useState, useContext } from "react";
-import { CalculatorContext } from "../../context/CalculatorContext";
+import { useState } from "react";
 import "./Calculator.css";
 import TalentPathGrid from "../talentpath/TalentPathGrid";
 
@@ -73,7 +72,6 @@ function Calculator() {
       ],
     },
   ]);
-  // const { calculatorState } = useContext(CalculatorContext);
 
   const allocatePoint = (pathIdx: number, talentIdx: number) => {
     if (points >= 6) {
@@ -116,9 +114,17 @@ function Calculator() {
       return;
     }
 
-    setPoints(points - 1);
-    const copyTalents = [...targetTalents];
-    copyTalents.splice(talentIdx, 1, { ...copyTalents[talentIdx], allocated: false });
+    let removeCount = 0;
+    const copyTalents = targetTalents.map((talent, index) => {
+      if (index >= talentIdx && talent.allocated) {
+        removeCount = removeCount + 1;
+        return {
+          ...talent,
+          allocated: false,
+        };
+      }
+      return talent;
+    });
 
     const updatedTree = talentTree.map((path, idx) => {
       if (pathIdx === idx) {
@@ -129,7 +135,7 @@ function Calculator() {
       }
       return path;
     });
-
+    setPoints(points - removeCount);
     setTalentTree(updatedTree);
   };
 
