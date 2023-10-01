@@ -3,13 +3,11 @@ import "./Calculator.css";
 import TalentPathGrid from "../talentpath/TalentPathGrid";
 
 export type Talent = {
-  id: number;
   name: string;
   allocated: boolean;
 };
 
 export type TalentPath = {
-  position: number;
   name: string;
   talents: Array<Talent>;
 };
@@ -20,52 +18,42 @@ function Calculator() {
   const [points, setPoints] = useState(0);
   const [talentTree, setTalentTree] = useState<TalentTree>([
     {
-      position: 1,
       name: "talent path 1",
       talents: [
         {
-          id: 1,
           name: "talent 1",
           allocated: false,
         },
         {
-          id: 2,
           name: "talent 2",
           allocated: false,
         },
         {
-          id: 3,
           name: "talent 3",
           allocated: false,
         },
         {
-          id: 4,
           name: "talent 4",
           allocated: false,
         },
       ],
     },
     {
-      position: 2,
       name: "talent path 2",
       talents: [
         {
-          id: 1,
           name: "talent 1",
           allocated: false,
         },
         {
-          id: 2,
           name: "talent 2",
           allocated: false,
         },
         {
-          id: 3,
           name: "talent 3",
           allocated: false,
         },
         {
-          id: 4,
           name: "talent 4",
           allocated: false,
         },
@@ -141,7 +129,7 @@ function Calculator() {
 
   return (
     <div className="calc-container">
-      <div className="flex-col">
+      <div className="talent-tree-container">
         {talentTree.map((path, idx) => (
           <TalentPathGrid
             key={path.name}
@@ -153,8 +141,8 @@ function Calculator() {
         ))}
       </div>
       <div className="points-counter">
-        <span>{points} / 6</span>
-        <span>Points Spent</span>
+        <p>{points} &#47; 6</p>
+        <p>Points Spent</p>
       </div>
     </div>
   );

@@ -1,28 +1,49 @@
 .calc-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  padding: 3rem 0 2rem 0;
 }
 
-.flex-col {
+.talent-tree-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 75%;
+}
+
+@media (max-width: 860px) {
+  .calc-container  {
+    flex-direction: column;
+    padding: 2rem 0;
+  }
+  .talent-tree-container {
+    flex-direction: row;
+    order: 1;
+    justify-content: center;
+  }
+  .points-counter {
+    order: 0;
+    margin: auto;
+  }
 }
 
 
 .points-counter {
-  display: flex;
-  flex-direction: column;
   padding: 1rem;
-  width: 200px;
+  width: 180px;
   height: 60px;
   text-align: center;
   background-color: rgba(0,0,0,0.5);
-  border: 1px solid rgba(255,255,255,0.5);
+  border: 1px solid #111416;
   font-size: 1.5rem;
+  margin: auto 4rem auto 5rem;
+}
+
+.points-counter p {
+  margin: 0;
   line-height: 1.8rem;
 }
 
-.points-counter span:last-of-type {
+.points-counter p:last-of-type {
   color: #435c79;
 }

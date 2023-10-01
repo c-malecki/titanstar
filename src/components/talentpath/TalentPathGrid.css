@@ -1,13 +1,14 @@
 .talent-path-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: min-content 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 58px;
+  grid-template-rows: 1fr;
   width: 100%;
   align-items: center;
   padding: 1rem 0;
 }
 
 .talent-path-container span {
+  font-size: 14px;
   font-weight: 500;
   color: #a0a2a2;
   text-transform: uppercase;
@@ -17,5 +18,88 @@
   height: 50px;
   width: 50px;
   padding: 0;
+  cursor: pointer;
   border: none;
+}
+
+.button-border {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  background-image: linear-gradient(to bottom, #4b4b4b, #4b4b4b 50%, #333 60%, #4b4b4b 100%);
+}
+
+.border-allocated {
+  background-image: linear-gradient(to bottom, #6eadee, #6eadee 50%, #333 50%, #6eadee 100%);
+  box-shadow: 0px 0px 6px 1px rgba(255,255,255,0.4);
+  -webkit-box-shadow: 0px 0px 6px 1px rgba(255,255,255,0.4);
+  -moz-box-shadow: 0px 0px 6px 1px rgba(255,255,255,0.4);
+}
+
+.unconnected-path:not(:last-of-type):after {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 10px;
+  background-color: #313234;
+  border-top: 2px solid #3f4042;
+  border-bottom: 2px solid #3f4042;
+  left: 58px;
+  opacity: 0.4;
+}
+
+.connected-path:not(:last-of-type):after {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 10px;
+  background-color: #313234;
+  border-top: 2px solid #3f4042;
+  border-bottom: 2px solid #3f4042;
+  left: 58px;
+  opacity: 1;
+}
+
+@media (max-width: 860px) {
+  .talent-path-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 58px 150px 150px 150px 58px;
+    justify-items: center;
+    padding: 1rem 0 0 0;
+    align-items: start;
+  }
+
+  .unconnected-path:not(:last-of-type):after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 200%;
+    background-color: #313234;
+    border-left: 2px solid #3f4042;
+    border-right: 2px solid #3f4042;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 58px;
+    opacity: 0.5;
+  }
+  
+  .connected-path:not(:last-of-type):after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 200%;
+    background-color: #313234;
+    border-left: 2px solid #3f4042;
+    border-right: 2px solid #3f4042;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 58px;
+    opacity: 1;
+  }
 }
