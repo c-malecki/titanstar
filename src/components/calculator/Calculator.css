@@ -11,24 +11,6 @@
   width: 75%;
 }
 
-@media (max-width: 860px) {
-  .calculator-container  {
-    flex-direction: column;
-    padding: 2rem 0;
-  }
-  .talent-tree-container {
-    flex-direction: row;
-    width: 100%;
-    order: 1;
-    justify-content: center;
-  }
-  .points-spent-counter {
-    order: 0;
-    margin: auto;
-  }
-}
-
-
 .points-spent-counter {
   padding: 1rem;
   width: 180px;
@@ -47,4 +29,21 @@
 
 .points-spent-counter p:last-of-type {
   color: #435c79;
+}
+
+@media (max-width: 860px) {
+  .calculator-container  {
+    flex-direction: column;
+    padding: 2rem 0;
+  }
+  .talent-tree-container {
+    flex-direction: row;
+    width: 100%;
+    order: 1;
+    justify-content: center;
+  }
+  .points-spent-counter {
+    order: 0;
+    margin: auto;
+  }
 }
