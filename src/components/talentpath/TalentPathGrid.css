@@ -1,4 +1,4 @@
-.talent-path-container {
+.talent-path-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 58px;
   grid-template-rows: 1fr;
@@ -7,14 +7,14 @@
   padding: 1rem 0;
 }
 
-.talent-path-container span {
+.talent-path-grid span {
   font-size: 14px;
   font-weight: 500;
   color: #a0a2a2;
   text-transform: uppercase;
 }
 
-.talent-path-container button {
+.talent-path-grid button {
   height: 50px;
   width: 50px;
   padding: 0;
@@ -22,24 +22,24 @@
   border: none;
 }
 
-.button-border {
+.talent-button-border {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 58px;
   height: 58px;
-  background-image: linear-gradient(to bottom, #4b4b4b, #4b4b4b 50%, #333 60%, #4b4b4b 100%);
+  background-image: linear-gradient(to bottom, #4b4b4b, #4b4b4b 50%, #333 50%, #4b4b4b 100%);
 }
 
-.border-allocated {
+.button-border-allocated {
   background-image: linear-gradient(to bottom, #6eadee, #6eadee 50%, #333 50%, #6eadee 100%);
   box-shadow: 0px 0px 6px 1px rgba(255,255,255,0.4);
   -webkit-box-shadow: 0px 0px 6px 1px rgba(255,255,255,0.4);
   -moz-box-shadow: 0px 0px 6px 1px rgba(255,255,255,0.4);
 }
 
-.unconnected-path:not(:last-of-type):after {
+.disconnected-path:not(:last-of-type):after {
   content: "";
   position: absolute;
   width: 150%;
@@ -64,7 +64,7 @@
 }
 
 @media (max-width: 860px) {
-  .talent-path-container {
+  .talent-path-grid {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 58px 150px 150px 150px 58px;
@@ -73,7 +73,7 @@
     align-items: start;
   }
 
-  .unconnected-path:not(:last-of-type):after {
+  .disconnected-path:not(:last-of-type):after {
     content: "";
     position: absolute;
     width: 10px;

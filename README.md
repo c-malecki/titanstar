@@ -32,16 +32,17 @@ The client application is built with [React](https://react.dev/), [Vite](https:/
 
 #### Component Architecture
 
-- `App.tsx` — Simply acts as the page container, applying the background image and constraining the app to the center of the view port and adjusting margins.
-- `Calculator.tsx` — Where the main application state and the functions for updating state live.
+- `App.tsx` — Simply acts as the page container, applying the background image and constraining the app to the center of the view port and adjusting margins based on viewport sizing.
+- `Calculator.tsx` — Where the TypeScript types, main application state, and functions for updating state live.
 - `TalentPathGrid.tsx` — Controls the layout of the talent path UI, switches sprite sheet mapping for talent icons, and controls CSS classes based on stateful conditions.
 
-### Difficulties I personally encountered
+### Difficulties I encountered
 
-- Layout containers and how to compartmentalize responsive control. Entire app or calculator as grid vs only the talent paths as grids? Flexible and scalable layout that would allow for neatly introducing more Talent Paths? How to handle reponsiveness for a very natural horizontal layout when in a smaller viewport (switch Talent Paths to vertical orientation and stack horizontally, with additional Talent Paths being moved to a new row below?)
-- Figuring out the right CSS to make the half gradient styling of the icon borders
+- Layout styling — Deciding how to break down the responsive layout responsibilities between elements and components. I feel the design is very accurate to the mock up styling, but I consider the CSS to be very rigid and specific. This issue is mostly present around orienting the Spent Points UI to the right of the Talent Path UI. It is dependent on a fixed number of 4 Talents per Talent Path. It changes to a vertical orientation at < 860px width, but this is also dependent on there being a fixed number of 2 Talent Paths total for a clean display. The “rigidity” results from using CSS grid column and row quantities and sizes based on this 4x2 specification with margins applied to the Points Counter to center it in the remaining right-side space.
+- Button Border styles — It took a little time and playing around to get the correct half gradient styling for the button borders.
+- H1 Title font — I'm not sure which font the "TitanStar Legends &#45; Rune Mastery Loadout Talent Calculator 9000" is using specifically, so I went with a 'Times New Roman' serif font to get the right letter shapes, but I know the lettering accenting is not accurate.
 
-### Additional features or enhancements I would do
+### Features or enhancements I would add
 
 - Lots of CSS animation opportunities. Faint blue pulsating while hovering over talent that can be allocated. A border trace and fill animation when a point is allocated. For sequential talents, spark that travels across connecting branch UI and then does the trace and fill animation.
 - Fix up container and responsive CSS to cleanly handle additional talent paths.

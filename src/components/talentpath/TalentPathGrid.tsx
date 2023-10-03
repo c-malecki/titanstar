@@ -3,17 +3,22 @@ import "./TalentPathGrid.css";
 import sprites from "../../assets/talent-icons-sprite.png";
 import type { Talent, TalentPath } from "../calculator/Calculator";
 
-type TalentPathProps = {
+type TalentPathGridProps = {
   path: TalentPath;
   pathIdx: number;
   allocatePoint: (pathIdx: number, talentIdx: number) => void;
   removePoint: (e: React.MouseEvent, pathIdx: number, talentIdx: number) => void;
 };
 
-function TalentPath(props: TalentPathProps) {
-  const [activeButton, setActiveButton] = useState<number | null>(null);
+function TalentPathGrid(props: TalentPathGridProps) {
+  const [isHoverButton, setIsHoverButton] = useState<number | null>(null);
 
-  const calcSpritePos = (pathIdx: number, allocated: boolean, idx: number, active: boolean) => {
+  const calcSpriteSheetPos = (
+    pathIdx: number,
+    allocated: boolean,
+    idx: number,
+    active: boolean
+  ) => {
     const allocatedOrActive = allocated || active;
     const posMultiplier = pathIdx > 0 ? 4 : 0;
     const xPos = (idx + posMultiplier) * -50;
@@ -24,10 +29,10 @@ function TalentPath(props: TalentPathProps) {
     };
   };
 
-  const genButtonClass = (talents: Talent[], curTalentIdx: number) => {
-    let buttonClass = "button-border unconnected-path";
+  const genTalentButtonClass = (talents: Talent[], curTalentIdx: number) => {
+    let buttonClass = "talent-button-border disconnected-path";
     if (talents[curTalentIdx].allocated) {
-      buttonClass += " border-allocated";
+      buttonClass += " button-border-allocated";
     }
     if (curTalentIdx === 0 && talents[curTalentIdx].allocated) {
       buttonClass += " connected-path";
@@ -44,20 +49,20 @@ function TalentPath(props: TalentPathProps) {
   };
 
   return (
-    <div className="talent-path-container">
+    <div className="talent-path-grid">
       <span>{props.path.name}</span>
       {props.path.talents.map((talent, talentIdx) => (
-        <div className={genButtonClass(props.path.talents, talentIdx)} key={talentIdx}>
+        <div className={genTalentButtonClass(props.path.talents, talentIdx)} key={talentIdx}>
           <button
-            style={calcSpritePos(
+            style={calcSpriteSheetPos(
               props.pathIdx,
               talent.allocated,
               talentIdx,
-              talentIdx === activeButton
+              talentIdx === isHoverButton
             )}
             title={`talent ${talentIdx + 1}`}
-            onMouseEnter={() => setActiveButton(talentIdx)}
-            onMouseLeave={() => setActiveButton(null)}
+            onMouseEnter={() => setIsHoverButton(talentIdx)}
+            onMouseLeave={() => setIsHoverButton(null)}
             onClick={() => props.allocatePoint(props.pathIdx, talentIdx)}
             onContextMenu={(e) => props.removePoint(e, props.pathIdx, talentIdx)}
           ></button>
@@ -67,4 +72,4 @@ function TalentPath(props: TalentPathProps) {
   );
 }
 
-export default TalentPath;
+export default TalentPathGrid;
