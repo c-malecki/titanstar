@@ -1,4 +1,4 @@
-.calc-container {
+.calculator-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -11,24 +11,7 @@
   width: 75%;
 }
 
-@media (max-width: 860px) {
-  .calc-container  {
-    flex-direction: column;
-    padding: 2rem 0;
-  }
-  .talent-tree-container {
-    flex-direction: row;
-    order: 1;
-    justify-content: center;
-  }
-  .points-counter {
-    order: 0;
-    margin: auto;
-  }
-}
-
-
-.points-counter {
+.points-spent-counter {
   padding: 1rem;
   width: 180px;
   height: 60px;
@@ -39,11 +22,28 @@
   margin: auto 4rem auto 5rem;
 }
 
-.points-counter p {
+.points-spent-counter p {
   margin: 0;
   line-height: 1.8rem;
 }
 
-.points-counter p:last-of-type {
+.points-spent-counter p:last-of-type {
   color: #435c79;
+}
+
+@media (max-width: 860px) {
+  .calculator-container  {
+    flex-direction: column;
+    padding: 2rem 0;
+  }
+  .talent-tree-container {
+    flex-direction: row;
+    width: 100%;
+    order: 1;
+    justify-content: center;
+  }
+  .points-spent-counter {
+    order: 0;
+    margin: auto;
+  }
 }
