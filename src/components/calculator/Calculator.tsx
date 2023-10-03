@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useLocation, useSearchParams } from "react-router-dom";
+import { Buffer } from "buffer";
 import "./Calculator.css";
 import TalentPathGrid from "../talentpath/TalentPathGrid";
 
@@ -60,6 +62,33 @@ function Calculator() {
       ],
     },
   ]);
+
+  const location = useLocation();
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initRender = useRef(true);
+
+  useEffect(() => {
+    if (initRender.current) {
+      if (!location.search.length) {
+        initRender.current = false;
+        return;
+      } else {
+        initRender.current = false;
+        const existingTree = searchParams.get("s");
+        if (!existingTree) return;
+        const pointscount = searchParams.get("p");
+        const base64ToJson = Buffer.from(existingTree, "base64").toString();
+        const stateFromJson = JSON.parse(base64ToJson);
+        setSpentPoints(parseInt(pointscount!));
+        setTalentTree(stateFromJson);
+      }
+    }
+    // need to add zod to validate structure and discard invalid result
+    const stateToJsonStr = JSON.stringify(talentTree);
+    const base64Str = Buffer.from(stateToJsonStr).toString("base64");
+    setSearchParams({ p: spentPoints.toString(), s: base64Str }, { replace: true });
+  }, [spentPoints, talentTree, location.search, searchParams, setSearchParams]);
 
   const allocatePoint = (curPathIdx: number, curTalentIdx: number) => {
     if (spentPoints >= 6) {
